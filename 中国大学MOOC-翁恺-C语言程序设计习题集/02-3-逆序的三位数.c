@@ -22,3 +22,16 @@
 // 123
 // 输出样例：
 // 321
+#include <stdio.h>
+int main()
+{
+    int input, a, b, c;
+
+    scanf("%d", &input);
+
+    c = input / 100;
+    b = input / 10 % 10;
+    a = input % 10;
+
+    printf("%d", a * 100 + b * 10 + c);
+}
