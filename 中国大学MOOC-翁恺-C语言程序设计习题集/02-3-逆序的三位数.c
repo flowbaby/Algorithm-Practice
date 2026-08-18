@@ -26,6 +26,7 @@
 int main()
 {
     int input, a, b, c;
+    input = 0;
 
     scanf("%d", &input);
 
@@ -34,4 +35,5 @@ int main()
     a = input % 10;
 
     printf("%d", a * 100 + b * 10 + c);
+    return 0;
 }
