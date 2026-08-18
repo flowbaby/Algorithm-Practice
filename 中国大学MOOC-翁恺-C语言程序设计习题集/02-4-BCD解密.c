@@ -19,3 +19,23 @@
 // 输出格式：
 
 // 输出对应的十进制数。
+
+// 输入样例：
+// 18
+// 输出样例：
+// 12
+#include <stdio.h>
+int main()
+{
+    int input = 0;
+    int a, b;
+
+    scanf("%d", &input);
+
+    a = input / 16;
+    b = input % 16;
+
+    printf("%d", a * 10 + b);
+
+    return 0;
+}
