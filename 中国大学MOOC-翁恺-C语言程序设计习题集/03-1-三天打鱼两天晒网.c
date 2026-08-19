@@ -24,3 +24,30 @@
 // 34
 // 输出样例2：
 // Drying in day 34
+#include <stdio.h>
+
+int main()
+{
+    int day = 1;
+    int num = 1;
+
+    scanf("%d", &day);
+
+    num = day % 5;
+
+    switch (num)
+    {
+    case 1:
+    case 2:
+    case 3:
+        printf("Fishing");
+        break;
+
+    default:
+        printf("Drying");
+        break;
+    }
+    printf(" in day %d", day);
+
+    return 0;
+}

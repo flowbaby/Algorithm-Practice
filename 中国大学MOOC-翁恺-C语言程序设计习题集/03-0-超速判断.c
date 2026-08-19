@@ -26,3 +26,23 @@
 // 75
 // 输出样例2：
 // Speed: 75 - Speeding
+#include <stdio.h>
+
+int main()
+{
+    const int required = 60;
+    int speed = 0;
+
+    scanf("%d", &speed);
+    printf("Speed: %d - ", speed);
+    if (speed > 60)
+    {
+        printf("Speeding");
+    }
+    else
+    {
+        printf("OK");
+    }
+
+    return 0;
+}
