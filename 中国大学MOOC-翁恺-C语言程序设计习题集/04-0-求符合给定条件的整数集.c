@@ -20,3 +20,59 @@
 
 // 输入样例：
 // 2
+// 输出样例：
+// 234 235 243 245 253 254
+// 324 325 342 345 352 354
+// 423 425 432 435 452 453
+// 523 524 532 534 542 543
+#include <stdio.h>
+
+int main()
+{
+    int input;
+    int lower, upper;
+    int cur1, cur2, cur3;
+    int count = 0;
+
+    scanf("%d", &input);
+    cur3 = cur2 = cur1 = lower = input;
+    upper = input + 3;
+
+    for (int i = 0; i < 4; i++) {
+        cur3 = lower;
+        cur2 = lower;
+        count = 0;
+        for (int j = 0; j < 6; j++) {
+            printf("%d", cur1);
+            if (count == 2) {
+                count = 0;
+                cur2++;
+                if (cur2 > upper) {
+                    cur2 = lower;
+                }
+            }
+            if (cur2 == cur1) {
+                cur2++;
+                if (cur2 > upper) {
+                    cur2 = lower;
+                }
+            }
+            count++;
+            printf("%d", cur2);
+
+            while (cur3 == cur1 || cur3 == cur2) {
+                cur3++;
+                if (cur3 > upper) {
+                    cur3 = lower;
+                }
+            }
+            printf("%d ", cur3);
+            cur3++;
+            if (cur3 > upper) {
+                cur3 = lower;
+            }
+        }
+        cur1++;
+        printf("\n");
+    }
+}
