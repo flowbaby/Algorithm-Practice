@@ -8,7 +8,7 @@
 // Standard
 // 作者
 // 徐镜春（浙江大学）
-// 水仙花数是指一个N位正整数（N>=3），它的每个位上的数字的N次幂之和等于它本身。例如：153 = 13 + 53+ 33。本题要求编写程序,计算所有N位水仙花数。
+// 水仙花数是指一个N位正整数（N>=3），它的每个位上的数字的N次幂之和等于它本身。例如：153 = 1^3 + 5^3+ 3^3。本题要求编写程序,计算所有N位水仙花数。
 
 // 输入格式：
 
@@ -25,3 +25,37 @@
 // 370
 // 371
 // 407
+#include <stdio.h>
+int power1(int base, int exp)
+{
+    int result = 1;
+    for (int i = 0; i < exp; i++) {
+        result *= base;
+    }
+    return result;
+}
+
+int main()
+{
+    int input;
+    int cur = 0;
+    int num = 0;
+    int sum = 0;
+
+    scanf("%d", &input);
+
+    for (num = power1(10, input - 1); num < power1(10, input); num++) {
+        int i = num;
+        sum = 0;
+        while (i > 0) {
+            cur = i % 10;
+            sum += power1(cur, input);
+            i /= 10;
+        }
+        if (sum == num) {
+            printf("%d\n", num);
+        }
+    }
+
+    return 0;
+}
