@@ -22,3 +22,30 @@
 // 10 31
 // 输出样例：
 // 7 143
+#include <stdio.h>
+
+int main()
+{
+    int M, N;
+    int num, sum;
+    int cur1, cur2;
+    int flag;
+    num = sum = 0;
+    scanf("%d %d", &M, &N);
+
+    for (cur1 = M; cur1 <= N; cur1++) {
+        flag = 1;
+        for (cur2 = 2; cur2 < cur1; cur2++) {
+            if (cur1 % cur2 == 0) {
+                flag = 0;
+                break;
+            }
+        }
+        if (flag) {
+            num++;
+            sum += cur1;
+        }
+    }
+    printf("%d %d", num, sum);
+    return 0;
+}
