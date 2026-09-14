@@ -33,7 +33,36 @@
 
 int main()
 {
-    
+    int guessNum;
+    int guessTime;
+    int x = 0;
+    int cnt = 0;
+    scanf("%d %d", &guessNum, &guessTime);
 
-    return 0;
+    do {
+        scanf("%d", &x);
+        cnt++;
+        if (x <= 0) {
+            printf("Game Over\n");
+            return 0;
+        }
+        if (x == guessNum) {
+            if (cnt == 1) {
+                printf("Bingo!\n");
+                return 0;
+            } else if (cnt <= 3) {
+                printf("Lucky You!\n");
+                return 0;
+            } else if (cnt <= guessTime) {
+                printf("Good Guess!\n");
+                return 0;
+            } else {
+                printf("Game Over\n");
+                return 0;
+            }
+        } else if (x < guessNum)
+            printf("Too small\n");
+        else
+            printf("Too big\n");
+    } while ( cnt <= guessTime);
 }
