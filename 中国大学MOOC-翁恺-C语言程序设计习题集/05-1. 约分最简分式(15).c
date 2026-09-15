@@ -24,3 +24,32 @@
 // 60/120
 // 输出样例：
 // 1/2
+#include <stdio.h>
+
+int main()
+{
+    int numerator, denominator;
+    int remainder = 0;
+    int gcb = 1;
+    scanf("%d/%d", &numerator, &denominator);
+    // numerator = 252;
+    // denominator = 105;
+    int a, b;
+    // 求分子分母哪个更大
+    if (numerator >= denominator) {
+        a = numerator;
+        b = denominator;
+    } else {
+        b = numerator;
+        a = denominator;
+    }
+
+    // 计算最大公约数a
+    do {
+        remainder = a % b;
+        a = b;
+        b = remainder;
+    } while (remainder != 0);
+    printf("%d/%d", numerator / a, denominator / a);
+    return 0;
+}
