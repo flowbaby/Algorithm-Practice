@@ -34,3 +34,68 @@
 // -600
 // 输出样例：
 // fu liu ling ling
+#include <stdio.h>
+
+int main()
+{
+    int num = 0;
+    int d = 0;
+    int mask = 1;
+    scanf("%d", &num);
+    // num = 123;
+    if (num < 0) {
+        printf("fu ");
+        num = -num;
+    }
+
+    int x = num;
+
+    // 求num的长度
+    while (x > 9) {
+        mask *= 10;
+        x /= 10;
+    }
+
+    // 正序切分
+    while (mask > 0) {
+
+        // 123 / 100 -> 1
+        // 123 % 100 -> 23
+        // 100 / 10  -> 10
+        // 23 / 10 -> 2
+        // 23 % 10 -> 3
+        // 10 / 10 -> 1
+        // 3 / 1  -> 3
+        // 3 % 1  -> 0
+        // 1 / 10 -> 0
+
+        d = num / mask;
+
+        if (d == 0)
+            printf("ling");
+        else if (d == 1)
+            printf("yi");
+        else if (d == 2)
+            printf("er");
+        else if (d == 3)
+            printf("san");
+        else if (d == 4)
+            printf("si");
+        else if (d == 5)
+            printf("wu");
+        else if (d == 6)
+            printf("liu");
+        else if (d == 7)
+            printf("qi");
+        else if (d == 8)
+            printf("ba");
+        else if (d == 9)
+            printf("jiu");
+        if (mask > 9) {
+            printf(" ");
+        }
+        num = num % mask;
+        mask /= 10;
+    }
+    return 0;
+}
