@@ -22,3 +22,21 @@
 // 2 4
 // 输出样例：
 // 2468
+#include <stdio.h>
+
+int main()
+{
+    int a, n;
+    int b;
+    scanf("%d %d", &a, &n);
+    b = a;
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += a;
+        a = a * 10 + b;
+        printf("%d %d\n", a, sum);
+    }
+    printf("%d", sum);
+
+    return 0;
+}

@@ -22,3 +22,11 @@
 // 2.12 88 c 4.7
 // 输出样例：
 // c 88 2.12 4.70
+#include <stdio.h>
+
+int main()
+{
+    
+
+    return 0;
+}
