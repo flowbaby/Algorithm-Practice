@@ -26,3 +26,27 @@
 // 输出样例：
 
 // 4 5 2 3 3 4
+#include <stdio.h>
+
+int main()
+{
+    char c;
+    char last_c;
+    int cnt = 0;
+    scanf("%c", &c);
+
+    while (c != '.') {
+        if (c == ' ') {
+            if (last_c != ' ') {
+                printf("%d ", cnt);
+                cnt = 0;
+            }
+        } else {
+            cnt++;
+        }
+        last_c = c;
+        scanf("%c", &c);
+    }
+    printf("%d", cnt);
+    return 0;
+}
