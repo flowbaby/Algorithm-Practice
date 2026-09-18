@@ -22,3 +22,23 @@
 // Hello World! 123#
 // 输出样例：
 // hELLO wORLD! 123
+
+#include <stdio.h>
+
+int main()
+{
+    char c;
+    scanf("%c", &c);
+    while (c != '#') {
+        if (c > 'a' && c < 'z') {
+            printf("%c", c + 'A' - 'a');
+        } else if (c > 'A' && c < 'Z') {
+            printf("%c", c - 'A' + 'a');
+        } else {
+            printf("%c", c);
+        }
+        scanf("%c", &c);
+    }
+
+    return 0;
+}
