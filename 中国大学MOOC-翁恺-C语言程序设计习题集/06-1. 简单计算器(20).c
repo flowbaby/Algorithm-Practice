@@ -22,3 +22,43 @@
 // 1+2*10-10/2=
 // 输出样例：
 // 10
+#include <stdio.h>
+
+int main()
+{
+    char c = ' ';
+    int num;
+    int ret;
+    int flag = 1;
+
+    scanf("%d", &ret);
+
+    while (c != '=') {
+        // 读取
+        if (flag) {
+            scanf("%c", &c);
+            flag = 0;
+        } else {
+            scanf("%d", &num);
+            flag = 1;
+            if (c == '+') {
+                ret += num;
+            } else if (c == '-') {
+                ret -= num;
+            } else if (c == '*') {
+                ret *= num;
+            } else if (c == '/') {
+                if (num == 0) {
+                    printf("ERROR");
+                    return 0;
+                }
+                ret /= num;
+            } else {
+                printf("ERROR");
+                return 0;
+            }
+        }
+    }
+    printf("%d", ret);
+    return 0;
+}
