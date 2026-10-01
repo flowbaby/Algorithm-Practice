@@ -8,7 +8,7 @@
 // Standard
 // 作者
 // HOU, Qiming
-// 给定区间[-231, 231]内的3个整数A、B和C，请判断A+B是否大于C。
+// 给定区间[-2^31, 2^31]内的3个整数A、B和C，请判断A+B是否大于C。
 
 // 输入格式：
 
@@ -29,3 +29,18 @@
 // Case #2: true
 // Case #3: true
 // Case #4: false
+#include <stdio.h>
+
+int main()
+{
+    int T;
+    long long A, B, C;
+    scanf("%d", &T);
+    for (int i = 1; i <= T; i++) {
+        A = B = C = 0;
+        scanf("%lld %lld %lld", &A, &B, &C);
+        printf("Case #%d: %s\n", i, A + B > C ? "true" : "false");
+    }
+
+    return 0;
+}
