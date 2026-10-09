@@ -28,3 +28,22 @@
 // 3 5 8 1 9
 // 输出样例2：
 // Not Found
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int N, X;
+    scanf("%d %d", &N, &X);
+    int* arr = (int*)malloc(N * sizeof(int));
+    for (int i = 0; i < N; i++) {
+        scanf("%d", &arr[i]);
+        if (arr[i] == X) {
+            printf("%d", i);
+            return 0;
+        }
+    }
+    printf("Not Found");
+    free(arr);
+    arr = NULL;
+    return 0;
+}

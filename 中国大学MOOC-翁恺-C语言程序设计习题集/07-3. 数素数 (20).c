@@ -25,10 +25,89 @@
 // 47 53 59 61 67 71 73 79 83 89
 // 97 101 103
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX 105000
+
+/**
+ * @brief 埃氏素数筛
+ *
+ * @param max 可能存在的最大的素
+ * @return int* 返回一个数组
+ */
+int* prime1(int max);
+
+int* prime2(int max);
 
 int main()
 {
-    
+    int M, N;
+    scanf("%d %d", &M, &N);
+    int* isPrime = prime2(MAX);
 
+    int count = 0;
+    int num = 0;
+    for (int i = 2; i <= MAX; i++) {
+        if (!isPrime[i]) {
+            count++;
+            if (count >= M && count <= N) {
+                printf("%d", i);
+                num++;
+                if (num % 10 == 0) {
+                    printf("\n");
+                } else {
+                    printf(" ");
+                }
+            } else if (count > N) {
+                break;
+            }
+        }
+    }
+
+    free(isPrime);
+    isPrime = NULL;
     return 0;
+}
+
+int* prime1(int max)
+{
+    int* isPrime = (int*)malloc((max + 1) * sizeof(int));
+    memset(isPrime, 0, (max + 1) * sizeof(int));
+
+    for (int i = 2; i * i <= max; i++) {
+        if (!isPrime[i]) {
+            for (int j = i * i; j <= max; j += i) {
+                isPrime[j] = 1;
+            }
+        }
+    }
+
+    return isPrime;
+}
+
+int* prime2(int max)
+{
+    int* isPrime = (int*)malloc((max + 1) * sizeof(int));
+    memset(isPrime, 0, (max + 1) * sizeof(int));
+    int* prime = (int*)malloc((max + 1) * sizeof(int));
+    memset(prime, 0, (max + 1) * sizeof(int));
+
+    int primeNum = 0;
+
+    for (int i = 2; i <= max; i++) {
+        if (!isPrime[i]) {
+            prime[primeNum] = i;
+            primeNum++;
+        }
+        for (int j = 0; j < primeNum && i * prime[j] <= max; j++) {
+            isPrime[i * prime[j]] = 1;
+            if (i % prime[j] == 0)
+                break;
+        }
+    }
+
+    free(prime);
+    prime = NULL;
+    return isPrime;
 }
