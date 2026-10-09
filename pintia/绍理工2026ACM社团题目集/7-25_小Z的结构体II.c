@@ -9,6 +9,12 @@
 
 int main()
 {
+    int N, M;
+    scanf("%d %d");
+    for (int i = 0; i < N; i++)
+    {
+        
+    }
     
 
     return 0;
