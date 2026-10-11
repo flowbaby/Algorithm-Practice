@@ -35,3 +35,40 @@
 // 1 5 3 5 1
 // 输出样例2：
 // None 3 5
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int M, N;
+    scanf("%d %d", &M, &N);
+    int** arr = (int**)malloc(M * sizeof(int*));
+    // 分配列空间
+    for (int i = 0; i < M; i++) {
+        arr[i] = (int*)malloc(N * sizeof(int));
+    }
+    // 填充数据
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    // 找出局部最大值
+    int falg = 0;
+    for (int i = 1; i < M - 1; i++) {
+        for (int j = 1; j < N - 1; j++) {
+            if (arr[i][j] > arr[i - 1][j] && arr[i][j] > arr[i + 1][j] && arr[i][j] > arr[i][j - 1] && arr[i][j] > arr[i][j + 1]) {
+                printf("%d %d %d\n", arr[i][j], i + 1, j + 1);
+                falg = 1;
+            }
+        }
+    }
+    if (!falg) {
+        printf("None %d %d", M, N);
+    }
+
+    free(arr);
+    arr = NULL;
+    return 0;
+}
