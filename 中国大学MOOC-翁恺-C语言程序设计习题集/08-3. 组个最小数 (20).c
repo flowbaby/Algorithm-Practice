@@ -24,3 +24,35 @@
 // 2 2 0 0 0 3 0 0 1 0
 // 输出样例：
 // 10015558
+#include <stdio.h>
+
+int main()
+{
+    // 保存样例到数组当中
+    int arr[10] = { 0 };
+    for (int i = 0; i < 10; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // 输出首位数字
+    for (int i = 1; i < 10; i++) {
+        if (arr[i] > 0) {
+            printf("%d", i);
+            arr[i]--;
+            break;
+        }
+    }
+
+    // 输出后续数字
+    int flag = 0;
+    for (int i = 0; i < 10; i++) {
+        while (arr[i]>0)
+        {
+            printf("%d", i);
+            arr[i]--;
+        }
+        
+    }
+
+    return 0;
+}
