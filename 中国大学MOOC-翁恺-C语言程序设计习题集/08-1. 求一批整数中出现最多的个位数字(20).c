@@ -24,10 +24,32 @@
 // 输出样例：
 // 3: 3 4
 #include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
-    
+    int N;
+    scanf("%d", &N);
+    int arr[10] = { 0 };
+
+    char c;
+    while ((c = getchar()) != EOF) {
+        if (c >= 48 && c <= 57) {
+            arr[c - 48]++;
+        }
+    }
+    int max = 0;
+    for (int i = 0; i < 10; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    printf("%d:", max);
+    for (int i = 0; i < 10; i++) {
+        if (max == arr[i]) {
+            printf(" %d", i);
+        }
+    }
 
     return 0;
 }
