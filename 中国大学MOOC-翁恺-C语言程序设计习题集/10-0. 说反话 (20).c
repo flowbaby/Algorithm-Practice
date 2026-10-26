@@ -18,3 +18,24 @@
 // Hello World Here I Come
 // 输出样例：
 // Come I Here World Hello
+#include <stdio.h>
+
+int main(void) {
+    char arr[40][81];
+    int cnt = 0;
+
+    while (cnt < 40 && scanf("%80s", arr[cnt]) == 1) {
+        cnt++;
+    }
+
+    for (int i = cnt - 1; i >= 0; i--) {
+        printf("%s", arr[i]);
+
+        if (i > 0) {
+            printf(" ");
+        }
+    }
+
+    printf("\n");
+    return 0;
+}

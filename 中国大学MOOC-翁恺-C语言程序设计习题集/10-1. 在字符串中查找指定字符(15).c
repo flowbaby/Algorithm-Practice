@@ -28,3 +28,26 @@
 // B
 // 输出样例2：
 // Not found
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char string[81];
+    gets(string);
+    char ch;
+    scanf("%c", &ch);
+    int flag = 0;
+    for (int i = 0; i < strlen(string); i++) {
+        if (string[i] == ch) {
+            flag = 1;
+            printf("%s", string + i);
+            break;
+        }
+    }
+    if (!flag) {
+        printf("Not found");
+    }
+
+    return 0;
+}
