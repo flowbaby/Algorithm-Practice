@@ -22,3 +22,36 @@
 // Hello World!
 // 输出样例：
 // !dlroW olleH
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char str[40][81];
+    char new[40][81];
+    int i = 0;
+    while (scanf("%s", str[i]) == 1) {
+        i++;
+    }
+    i--;
+    // 按照空格分隔原数组，并反转
+    int len = i;
+    for (int j = 0; j <= len; j++) {
+        strcpy(new[j], str[i]);
+        i--;
+    }
+    // 将每个字符串内部反转
+    for (int j = 0; j <= len; j++) {
+        char nstr[81]={0};
+        int newlen = strlen(new[j]);
+        for (int k = 0; k < strlen(new[j]); k++) {
+            nstr[k] = new[j][newlen-1];
+            newlen--;
+        }
+        printf("%s", nstr);
+        if (j < len) {
+            printf(" ");
+        }
+    }
+
+    return 0;
+}
