@@ -23,3 +23,11 @@
 // 2
 // 输出样例：
 // llo World!He
+#include <stdio.h>
+
+int main()
+{
+        
+
+    return 0;
+}
