@@ -15,8 +15,12 @@ int main()
 void insertion_sort(int* arr, int n)
 {
     for (int i = 1; i < n; i++) {
+        // key 为要插入的元素
         int key = arr[i];
+        // 排序好的部分的末端索引
         int j = i - 1;
+        // 查找要插入的位置
+        // 后移 抽出的元素前面到插入后面的部分
         while (j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
             j--;
