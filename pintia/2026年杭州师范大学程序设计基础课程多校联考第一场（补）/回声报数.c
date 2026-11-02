@@ -7,12 +7,40 @@
 // @pintia code=start
 #include <stdio.h>
 
+int is_contain3(int x);
 int main()
 {
     int N;
-    scanf("%d", N);
-    
-
+    scanf("%d", &N);
+    int x = 1;
+    int ban_cnt = 0;
+    int out_time = 0;
+    while (out_time < N) {
+        if (x % 3 == 0 || is_contain3(x)) {
+            ban_cnt++;
+        } else {
+            if (ban_cnt >= 2) {
+                out_time += 2;
+            } else {
+                out_time++;
+            }
+            ban_cnt = 0;
+        }
+        x++;
+        // printf("x=%d,第%d次,屏蔽次数%d\n", x, out_time, ban_cnt);
+    }
+    printf("%d", x-1);
+    return 0;
+}
+int is_contain3(int x)
+{
+    while (x > 0) {
+        int d = x % 10;
+        if (d == 3) {
+            return 1;
+        }
+        x = x / 10;
+    }
     return 0;
 }
 // @pintia code=end
