@@ -22,4 +22,42 @@
 // Tomcat is a male ccatat
 // cat
 // 输出样例：
-// Tom is a male 
+// Tom is a male
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char str1[81];
+    char str2[81];
+    gets(str1);
+    gets(str2);
+    int len1 = strlen(str1);
+    int len2 = strlen(str2);
+
+    int swap = 0;
+    do {
+        swap = 0;
+        for (int i = 0; i < len1; i++) {
+            int flag = 1;
+            int index = i;
+            for (int j = 0; j < len2; j++) {
+                if (str1[index] == str2[j]) {
+                    index++;
+                } else {
+                    flag = 0;
+                    break;
+                }
+            }
+            // 删除从i到index（包含）的元素
+            // index 后面的元素全向前移动strlen(str2)格
+            if (flag) {
+                swap = 1;
+                for (int k = i; k < len1 - len2 + 1; k++) {
+                    str1[k] = str1[k + len2];
+                }
+            }
+        }
+    } while (swap);
+    printf("%s", str1);
+    return 0;
+}
