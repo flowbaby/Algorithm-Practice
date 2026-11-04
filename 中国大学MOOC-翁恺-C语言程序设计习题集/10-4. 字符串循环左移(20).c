@@ -24,10 +24,28 @@
 // 输出样例：
 // llo World!He
 #include <stdio.h>
-
+#include <string.h>
 int main()
 {
-        
+    char str[101];
+    gets(str);
+    int n;
+    scanf("%d", &n);
+    int len = strlen(str);
+    n = n % len;
+    char* arr = malloc(n * sizeof(char));
+    for (int i = 0; i < n; i++) {
+        arr[i] = str[i];
+    }
+    for (int i = 0; i < len - n; i++) {
+        str[i] = str[i + n];
+    }
+    int j = 0;
+    for (int i = len - n; i < len; i++) {
+        str[i] = arr[j++];
+    }
 
+    free(arr);
+    printf("%s", str);
     return 0;
 }
