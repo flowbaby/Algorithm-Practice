@@ -27,7 +27,7 @@ int main()
     if (n > 0)
         average = sum / n;
     printf("average = %d\n", average);
-    printf("count = %d", count);
+    printf("count = %d\n", count);
     return 0;
 }
 // @pintia code=end
